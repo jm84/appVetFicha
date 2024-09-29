@@ -1,0 +1,112 @@
+<h1 mat-dialog-title>Create Ficha Clinica</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-tab-group>
+      <mat-tab label="Owner Information">
+        <mat-form-field>
+          <mat-label>Owner's Name</mat-label>
+          <input matInput formControlName="ownerName" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput formControlName="date" type="date" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>City</mat-label>
+          <input matInput formControlName="city" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Phone 1</mat-label>
+          <input matInput formControlName="phone1" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Phone 2</mat-label>
+          <input matInput formControlName="phone2" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Emergency Contact Name</mat-label>
+          <input matInput formControlName="emergencyContactName" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Emergency Phone</mat-label>
+          <input matInput formControlName="emergencyPhone" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+      </mat-tab>
+      <mat-tab label="Pet Information">
+        <mat-form-field>
+          <mat-label>Pet's Name</mat-label>
+          <input matInput formControlName="petName" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Specie</mat-label>
+          <mat-select formControlName="specie">
+            <mat-option value="dog">Dog</mat-option>
+            <mat-option value="cat">Cat</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="form.get('specie')!.value === 'dog'">
+          <mat-label>Race</mat-label>
+          <mat-select formControlName="race">
+            <mat-option *ngFor="let race of dogRaces" [value]="race">{{
+              race
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field *ngIf="form.get('specie')!.value === 'cat'">
+          <mat-label>Race</mat-label>
+          <mat-select formControlName="race">
+            <mat-option *ngFor="let race of catRaces" [value]="race">{{
+              race
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Color</mat-label>
+          <input matInput formControlName="color" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Age</mat-label>
+          <input matInput formControlName="age" type="number" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Genere</mat-label>
+          <mat-select formControlName="genere">
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Diet</mat-label>
+          <textarea matInput formControlName="diet"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Current Medication</mat-label>
+          <textarea matInput formControlName="currentMedication"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Reason for Visit</mat-label>
+          <textarea matInput formControlName="reasonForVisit"></textarea>
+        </mat-form-field>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-button
+    color="primary"
+    (click)="onSave()"
+    [disabled]="form.invalid"
+  >
+    Save
+  </button>
+</div>

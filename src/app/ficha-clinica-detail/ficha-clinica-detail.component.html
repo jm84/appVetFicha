@@ -1,0 +1,27 @@
+<mat-tab-group>
+  <mat-tab label="Pet Information">
+    <div>
+      <h2>Pet Information</h2>
+      <p><strong>Name:</strong> {{ fichaClinica.petName }}</p>
+      <p><strong>Specie:</strong> {{ fichaClinica.specie }}</p>
+      <p><strong>Race:</strong> {{ fichaClinica.race }}</p>
+      <p><strong>Color:</strong> {{ fichaClinica.color }}</p>
+      <p><strong>Age:</strong> {{ fichaClinica.age }}</p>
+      <p><strong>Genere:</strong> {{ fichaClinica.genere }}</p>
+      <p><strong>Diet:</strong> {{ fichaClinica.diet }}</p>
+      <p>
+        <strong>Current Medication:</strong>
+        {{ fichaClinica.currentMedication }}
+      </p>
+      <p>
+        <strong>Reason for Visit:</strong> {{ fichaClinica.reasonForVisit }}
+      </p>
+    </div>
+  </mat-tab>
+  <mat-tab label="Anamnesis">
+    <div>
+      <h2>Anamnesis</h2>
+      <!-- Add content for Anamnesis here -->
+    </div>
+  </mat-tab>
+</mat-tab-group>
