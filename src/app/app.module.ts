@@ -9,13 +9,25 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { PacienteComponent } from './paciente/paciente.component';
 import { PacienteDialogComponent } from './paciente-dialog/paciente-dialog.component';
+import { AnamnesisComponent } from './anamnesis/anamnesis.component';
+import { MedicalPageComponent } from './medical-page/medical-page.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
-  declarations: [AppComponent, PacienteComponent, PacienteDialogComponent],
+  declarations: [
+    AppComponent,
+    PacienteComponent,
+    PacienteDialogComponent,
+    AnamnesisComponent,
+    MedicalPageComponent,
+    ConfirmDialogComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -28,6 +40,8 @@ import { PacienteDialogComponent } from './paciente-dialog/paciente-dialog.compo
     MatInputModule,
     MatSelectModule,
     MatPaginatorModule,
+    MatTabsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
