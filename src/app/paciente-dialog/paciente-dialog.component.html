@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>{{ action }} Patient</h1>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="name?.hasError('required')">Name is required</mat-error>
+      <mat-error *ngIf="name?.hasError('minlength')"
+        >Name must be at least 3 characters long</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Specie</mat-label>
+      <mat-select formControlName="specie">
+        <mat-option *ngFor="let specie of species" [value]="specie">{{
+          specie
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="specie?.hasError('required')"
+        >Specie is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput formControlName="age" type="number" />
+      <mat-error *ngIf="age?.hasError('required')">Age is required</mat-error>
+      <mat-error *ngIf="age?.hasError('min')"
+        >Age must be a positive number</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Genere</mat-label>
+      <input matInput formControlName="genere" />
+      <mat-error *ngIf="genere?.hasError('required')"
+        >Genere is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Race</mat-label>
+      <mat-select formControlName="race">
+        <mat-option *ngFor="let race of races" [value]="race">{{
+          race
+        }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="race?.hasError('required')">Race is required</mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-button
+    color="primary"
+    (click)="onSave()"
+    [disabled]="form.invalid"
+  >
+    Save
+  </button>
+</div>
